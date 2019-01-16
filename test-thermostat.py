@@ -16,8 +16,8 @@ testboard = Testboard("testboard_name")
 
 # Our Product's Input will be connected the Testboard's Pin D3, making it our
 # Output Pin
-RELAY1 = "D2"
-RELAY2 = "D3"
+FAN = "D2"
+HEATER = "D3"
 TEMPERATURE = "A4"
 
 #get the current temperature
@@ -33,7 +33,8 @@ def perform_test():
     
     highTemperature = temperature + 3
     # set PIN state
-    testboard.digitalWrite(RELAY1, 'HIGH')
+    testboard.digitalWrite(FUN, 'HIGH')
+    testboard.digitalWrite(HEATER, 'HIGH')
     cnt=0
     while temperature < highTemperature:
         time.sleep(2)
@@ -44,10 +45,9 @@ def perform_test():
             print("exited due to timeout")
             break
             
-    testboard.digitalWrite(RELAY1, 'LOW')
+    testboard.digitalWrite(HEATER, 'LOW')
     
     lowTemperature = temperature - 3
-    testboard.digitalWrite(RELAY2, 'HIGH')
     cnt=0
     while temperature > lowTemperature:
         time.sleep(2)
@@ -58,7 +58,7 @@ def perform_test():
             print("exited due to timeout")
             break
             
-    testboard.digitalWrite(RELAY2, 'LOW')
+    testboard.digitalWrite(FAN, 'LOW')
     
     #testboard.digitalWrite(RELAY3, 'HIGH')
     #time.sleep(2)
