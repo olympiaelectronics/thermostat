@@ -28,8 +28,9 @@ def get_temperature():
     return (voltage - 0.5) * 100
     
 def toggle_digital_output():
+    print("get temperature...")
     temperature = get_temperature()
-    print(temperature)
+    print("temperature= ","%.1f" % temperature)
     
     # set PIN state
     testboard.digitalWrite(RELAY1, 'HIGH')
