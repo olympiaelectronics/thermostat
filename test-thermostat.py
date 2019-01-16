@@ -30,20 +30,29 @@ def get_temperature():
 def toggle_digital_output():
     print("get the temperature...")
     temperature = get_temperature()
-    print("temperature = ","%.1f" % temperature)
+    print("current temperature = ","%.1f" % temperature)
     
+    highTemperature = temperature + 3
     # set PIN state
     testboard.digitalWrite(RELAY1, 'HIGH')
-    time.sleep(2)
+    while temperature < highTemperature:
+        time.sleep(2)
+        temperature = get_temperature()
+        print("temperature = ","%.1f" % temperature)
     testboard.digitalWrite(RELAY1, 'LOW')
     
+    lowTemperature = temperature - 3
     testboard.digitalWrite(RELAY2, 'HIGH')
-    time.sleep(2)
+    while temperature > lowTemperature:
+        time.sleep(2)
+        temperature = get_temperature()
+        print("temperature = ","%.1f" % temperature)
     testboard.digitalWrite(RELAY2, 'LOW')
     
-    testboard.digitalWrite(RELAY3, 'HIGH')
-    time.sleep(2)
-    testboard.digitalWrite(RELAY3, 'LOW')
+    #testboard.digitalWrite(RELAY3, 'HIGH')
+    #time.sleep(2)
+    #testboard.digitalWrite(RELAY3, 'LOW')
+    
     Spanner.assertTrue(1)
 
 if __name__ == "__main__":
