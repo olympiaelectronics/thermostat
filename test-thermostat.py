@@ -21,6 +21,7 @@ RELAY2 = "D2"
 RELAY3 = "D3"
 TEMPERATURE = "A4"
 
+#gets the current temperature
 def get_temperature():
     value = testboard.analogRead(TEMPERATURE)
     voltage = (3.3 * value) / 4096
