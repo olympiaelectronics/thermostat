@@ -41,6 +41,7 @@ def perform_test():
         print("temperature = ","%.1f" % temperature)
         cnt++
         if(cnt>20)
+            print("exited due to timeout")
             break
             
     testboard.digitalWrite(RELAY1, 'LOW')
@@ -54,6 +55,7 @@ def perform_test():
         print("temperature = ","%.1f" % temperature)
         cnt++
         if(cnt>20)
+            print("exited due to timeout")
             break
             
     testboard.digitalWrite(RELAY2, 'LOW')
