@@ -16,15 +16,33 @@ testboard = Testboard("testboard_name")
 
 # Our Product's Input will be connected the Testboard's Pin D3, making it our
 # Output Pin
-OUTPUT_PIN = "D3"
+RELAY1 = "D4"
+RELAY2 = "D2"
+RELAY3 = "D3"
+TEMPERATURE = "A4"
 
+def get_temperature():
+    value = testboard.analogRead(TEMPERATURE)
+    voltage = (3.3 * value) / 4096
+    return (voltage - 0.5) * 100
+    
 def toggle_digital_output():
+    temperature = get_temperature()
+    print(temperature)
+    
     # set PIN state
-    testboard.digitalWrite(OUTPUT_PIN, 'HIGH')
-
+    testboard.digitalWrite(RELAY1, 'HIGH')
     time.sleep(2)
-
-    testboard.digitalWrite(OUTPUT_PIN, 'LOW')
+    testboard.digitalWrite(RELAY1, 'LOW')
+    
+    testboard.digitalWrite(RELAY2, 'HIGH')
+    time.sleep(2)
+    testboard.digitalWrite(RELAY2, 'LOW')
+    
+    testboard.digitalWrite(RELAY3, 'HIGH')
+    time.sleep(2)
+    testboard.digitalWrite(RELAY3, 'LOW')
+    Spanner.assertTrue(1)
 
 if __name__ == "__main__":
     toggle_digital_output()
