@@ -16,9 +16,8 @@ testboard = Testboard("testboard_name")
 
 # Our Product's Input will be connected the Testboard's Pin D3, making it our
 # Output Pin
-RELAY1 = "D4"
-RELAY2 = "D2"
-RELAY3 = "D3"
+RELAY1 = "D2"
+RELAY2 = "D3"
 TEMPERATURE = "A4"
 
 #get the current temperature
@@ -27,7 +26,7 @@ def get_temperature():
     voltage = (3.3 * value) / 4096
     return (voltage - 0.5) * 100
     
-def toggle_digital_output():
+def perform_test():
     print("get the temperature...")
     temperature = get_temperature()
     print("current temperature = ","%.1f" % temperature)
@@ -56,4 +55,4 @@ def toggle_digital_output():
     Spanner.assertTrue(1)
 
 if __name__ == "__main__":
-    toggle_digital_output()
+    perform_test()
