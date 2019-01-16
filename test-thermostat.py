@@ -34,18 +34,28 @@ def perform_test():
     highTemperature = temperature + 3
     # set PIN state
     testboard.digitalWrite(RELAY1, 'HIGH')
+    cnt=0
     while temperature < highTemperature:
         time.sleep(2)
         temperature = get_temperature()
         print("temperature = ","%.1f" % temperature)
+        cnt++
+        if(cnt>20)
+            break
+            
     testboard.digitalWrite(RELAY1, 'LOW')
     
     lowTemperature = temperature - 3
     testboard.digitalWrite(RELAY2, 'HIGH')
+    cnt=0
     while temperature > lowTemperature:
         time.sleep(2)
         temperature = get_temperature()
         print("temperature = ","%.1f" % temperature)
+        cnt++
+        if(cnt>20)
+            break
+            
     testboard.digitalWrite(RELAY2, 'LOW')
     
     #testboard.digitalWrite(RELAY3, 'HIGH')
