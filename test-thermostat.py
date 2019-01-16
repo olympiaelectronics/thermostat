@@ -40,7 +40,7 @@ def perform_test():
         temperature = get_temperature()
         print("temperature = ","%.1f" % temperature)
         cnt=cnt+1
-        if(cnt>20)
+        if(cnt>20):
             print("exited due to timeout")
             break
             
@@ -54,7 +54,7 @@ def perform_test():
         temperature = get_temperature()
         print("temperature = ","%.1f" % temperature)
         cnt=cnt+1
-        if(cnt>20)
+        if(cnt>20):
             print("exited due to timeout")
             break
             
