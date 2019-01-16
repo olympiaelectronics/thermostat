@@ -21,16 +21,16 @@ RELAY2 = "D2"
 RELAY3 = "D3"
 TEMPERATURE = "A4"
 
-#gets the current temperature
+#get the current temperature
 def get_temperature():
     value = testboard.analogRead(TEMPERATURE)
     voltage = (3.3 * value) / 4096
     return (voltage - 0.5) * 100
     
 def toggle_digital_output():
-    print("get temperature...")
+    print("get the temperature...")
     temperature = get_temperature()
-    print("temperature= ","%.1f" % temperature)
+    print("temperature = ","%.1f" % temperature)
     
     # set PIN state
     testboard.digitalWrite(RELAY1, 'HIGH')
