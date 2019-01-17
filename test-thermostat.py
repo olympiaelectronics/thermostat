@@ -33,7 +33,7 @@ def perform_test():
     
     highTemperature = temperature + 3
     # set PIN state
-    testboard.digitalWrite(FUN, 'HIGH')
+    testboard.digitalWrite(FAN, 'HIGH')
     testboard.digitalWrite(HEATER, 'HIGH')
     cnt=0
     while temperature < highTemperature:
