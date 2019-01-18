@@ -27,13 +27,14 @@ def get_temperature():
     return (voltage - 0.5) * 100
     
 def perform_test():
-    print("get the temperature...")
+    print("get the temperature...", flush=True)
     temperature = get_temperature()
     print("current temperature = ","%.1f" % temperature)
     
     highTemperature = temperature + 3
     # set PIN state
     testboard.digitalWrite(FAN, 'HIGH')
+    time.sleep(2)
     testboard.digitalWrite(HEATER, 'HIGH')
     cnt=0
     while temperature < highTemperature:
