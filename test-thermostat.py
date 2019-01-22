@@ -34,9 +34,7 @@ def perform_test():
     highTemperature = temperature + 3
     # set PIN state
     testboard.digitalWrite(HEATER, 'HIGH')
-    time.sleep(10)
-    testboard.digitalWrite(HEATER, 'LOW')
-    time.sleep(1)
+    time.sleep(2)
     testboard.digitalWrite(FAN, 'HIGH')
     cnt=0
     while temperature < highTemperature:
@@ -47,8 +45,8 @@ def perform_test():
         if(cnt>20):
             print("exited due to timeout")
             break
-            
-    testboard.digitalWrite(FAN, 'LOW')
+    
+     testboard.digitalWrite(HEATER, 'LOW')
     
     lowTemperature = temperature - 3
     cnt=0
