@@ -46,7 +46,7 @@ def perform_test():
             print("exited due to timeout")
             break
     
-     testboard.digitalWrite(HEATER, 'LOW')
+    testboard.digitalWrite(HEATER, 'LOW')
     
     lowTemperature = temperature - 3
     cnt=0
