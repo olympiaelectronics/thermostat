@@ -38,9 +38,9 @@ def perform_test():
     
     time.sleep(1)
     print("Switch Thermostat ON", flush=True)
-    testboard.digitalWrite(THERMO2, 'HIGH')
+    testboard.digitalWrite(THERMO_ON, 'HIGH')
     time.sleep(2)
-    testboard.digitalWrite(THERMO2, 'LOW')
+    testboard.digitalWrite(THERMO_ON, 'LOW')
         
     print("get the temperature...", flush=True)
     temperature = get_temperature()
