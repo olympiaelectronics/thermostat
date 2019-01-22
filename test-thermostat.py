@@ -66,7 +66,7 @@ def perform_test():
             break
             
     testboard.digitalWrite(FAN, 'LOW')
-    
+     testboard.digitalWrite(ROUTER, 'LOW')
     Spanner.assertTrue(1)
 
 if __name__ == "__main__":
