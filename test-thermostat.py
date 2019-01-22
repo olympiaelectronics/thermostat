@@ -16,9 +16,9 @@ testboard = Testboard("testboard_name")
 
 # Our Product's Input will be connected the Testboard's Pin D3, making it our
 # Output Pin
-FAN = "D3"
+ROUTER = "D3"
 HEATER = "D2"
-ROUTER = "D4"
+FAN = "D4"
 TEMPERATURE = "A4"
 
 #get the current temperature
