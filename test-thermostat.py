@@ -31,6 +31,7 @@ def perform_test():
     temperature = get_temperature()
     print("current temperature = ","%.1f" % temperature)
     
+    print("Heating things up...", flush=True)
     highTemperature = temperature + 3
     # set PIN state
     testboard.digitalWrite(HEATER, 'HIGH')
@@ -48,22 +49,19 @@ def perform_test():
     
     testboard.digitalWrite(HEATER, 'LOW')
     
+    print("Cooling things down...", flush=True)
     lowTemperature = temperature - 3
     cnt=0
     while temperature > lowTemperature:
         time.sleep(2)
         temperature = get_temperature()
-        print("temperature = ","%.1f" % temperature)
+        print("temperature = ","%.1f" % temperature, flush=True)
         cnt=cnt+1
         if(cnt>20):
             print("exited due to timeout")
             break
             
     testboard.digitalWrite(FAN, 'LOW')
-    
-    #testboard.digitalWrite(RELAY3, 'HIGH')
-    #time.sleep(2)
-    #testboard.digitalWrite(RELAY3, 'LOW')
     
     Spanner.assertTrue(1)
 
