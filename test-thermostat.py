@@ -32,7 +32,7 @@ def perform_test():
     print("current temperature = ","%.1f" % temperature)
     
     print("Heating things up...", flush=True)
-    highTemperature = temperature + 3
+    highTemperature = temperature + 2
     # set PIN state
     testboard.digitalWrite(HEATER, 'HIGH')
     time.sleep(2)
@@ -50,7 +50,7 @@ def perform_test():
     testboard.digitalWrite(HEATER, 'LOW')
     
     print("Cooling things down...", flush=True)
-    lowTemperature = temperature - 3
+    lowTemperature = temperature - 2
     cnt=0
     while temperature > lowTemperature:
         time.sleep(2)
