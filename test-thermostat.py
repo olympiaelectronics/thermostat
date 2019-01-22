@@ -18,6 +18,7 @@ testboard = Testboard("testboard_name")
 # Output Pin
 FAN = "D3"
 HEATER = "D2"
+ROUTER = "D4"
 TEMPERATURE = "A4"
 
 #get the current temperature
@@ -27,6 +28,9 @@ def get_temperature():
     return (voltage - 0.5) * 100
     
 def perform_test():
+    print("Starting Access Point...", flush=True)
+    testboard.digitalWrite(ROUTER, 'HIGH')
+    
     print("get the temperature...", flush=True)
     temperature = get_temperature()
     print("current temperature = ","%.1f" % temperature)
