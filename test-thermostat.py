@@ -19,6 +19,7 @@ testboard = Testboard("testboard_name")
 ROUTER = "D3"
 HEATER = "D2"
 FAN = "D4"
+THERMO2 = "D5"
 TEMPERATURE = "A4"
 
 #get the current temperature
@@ -30,6 +31,9 @@ def get_temperature():
 def perform_test():
     print("Starting Access Point...", flush=True)
     testboard.digitalWrite(ROUTER, 'HIGH')
+    time.sleep(1)
+    print("Starting Thermostat...", flush=True)
+    testboard.digitalWrite(THERMO2, 'HIGH')
     
     print("get the temperature...", flush=True)
     temperature = get_temperature()
@@ -66,7 +70,8 @@ def perform_test():
             break
             
     testboard.digitalWrite(FAN, 'LOW')
-     testboard.digitalWrite(ROUTER, 'LOW')
+    testboard.digitalWrite(ROUTER, 'LOW')
+    testboard.digitalWrite(THERMO2, 'LOW')
     Spanner.assertTrue(1)
 
 if __name__ == "__main__":
