@@ -20,6 +20,7 @@ ROUTER = "D3"
 HEATER = "D2"
 FAN = "D4"
 THERMO2 = "D5"
+THERMO_ON = "D6"
 TEMPERATURE = "A4"
 
 #get the current temperature
@@ -35,6 +36,12 @@ def perform_test():
     print("Starting Thermostat...", flush=True)
     testboard.digitalWrite(THERMO2, 'HIGH')
     
+    time.sleep(1)
+    print("Switch Thermostat ON", flush=True)
+    testboard.digitalWrite(THERMO2, 'HIGH')
+    time.sleep(2)
+    testboard.digitalWrite(THERMO2, 'LOW')
+        
     print("get the temperature...", flush=True)
     temperature = get_temperature()
     print("current temperature = ","%.1f" % temperature)
