@@ -51,7 +51,7 @@ def perform_test():
     # Stop measuring power consumption
     testboard.stopPowerMeasurement()
     power = testboard.measuredPowerConsumption()
-    print("power consumption = ","%.3f" % power, flush=True)
+    print("power consumption (mA) = ","%.3f" % power, flush=True)
     
     ###### TEMPERATURE RELATED ######
     print("get the temperature...", flush=True)
