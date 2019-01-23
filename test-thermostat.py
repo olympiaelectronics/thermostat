@@ -11,6 +11,7 @@
 import time
 import Spanner
 from Testboard import Testboard
+import urllib.request
 
 testboard = Testboard("testboard_name")
 
@@ -42,6 +43,9 @@ def perform_test():
     time.sleep(1)
     testboard.digitalWrite(THERMO_ON, 'LOW')
 
+    print("Set Temperature High...", flush=True)
+    urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setTempHigh").read()
+    
     ###### POWER CONSUMPTION ######
     print("Measuring Power Consumption for 30 seconds...", flush=True)
     # Start measuring power consumption
