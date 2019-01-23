@@ -43,6 +43,7 @@ def perform_test():
     testboard.digitalWrite(THERMO_ON, 'LOW')
 
     ###### POWER CONSUMPTION ######
+    print("Measuring Power Consumption for 30 seconds...", flush=True)
     # Start measuring power consumption
     testboard.startPowerMeasurement()
     # Measure for 5 minutes
@@ -50,7 +51,7 @@ def perform_test():
     # Stop measuring power consumption
     testboard.stopPowerMeasurement()
     power = testboard.measuredPowerConsumption()
-    print("power consumption = ","%.1f" % power, flush=True)
+    print("power consumption = ","%.3f" % power, flush=True)
     
     ###### TEMPERATURE RELATED ######
     print("get the temperature...", flush=True)
