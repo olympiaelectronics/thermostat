@@ -41,7 +41,18 @@ def perform_test():
     testboard.digitalWrite(THERMO_ON, 'HIGH')
     time.sleep(1)
     testboard.digitalWrite(THERMO_ON, 'LOW')
-        
+
+    ###### POWER CONSUMPTION ######
+    # Start measuring power consumption
+    testboard.startPowerMeasurement()
+    # Measure for 5 minutes
+    time.sleep(30)
+    # Stop measuring power consumption
+    testboard.stopPowerMeasurement()
+    power = testboard.measuredPowerConsumption()
+    print("power consumption = ","%.1f" % power, flush=True)
+    
+    ###### TEMPERATURE RELATED ######
     print("get the temperature...", flush=True)
     temperature = get_temperature()
     print("current temperature = ","%.1f" % temperature)
