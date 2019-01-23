@@ -36,7 +36,7 @@ def perform_test():
     print("Starting Thermostat...", flush=True)
     testboard.digitalWrite(THERMO2, 'HIGH')
     
-    time.sleep(1)
+    time.sleep(7)
     print("Switch Thermostat ON", flush=True)
     testboard.digitalWrite(THERMO_ON, 'HIGH')
     time.sleep(2)
