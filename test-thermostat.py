@@ -23,7 +23,7 @@ THERMO2 = "D5"
 THERMO_ON = "D1"
 TEMPERATURE = "A4"
 
-#get the current temperature
+#get the current temperature.
 def get_temperature():
     value = testboard.analogRead(TEMPERATURE)
     voltage = (3.3 * value) / 4096
