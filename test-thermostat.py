@@ -56,6 +56,7 @@ def perform_test():
     testboard.stopPowerMeasurement()
     power = testboard.measuredPowerConsumption()
     print("power consumption (mA) = ","%.3f" % power, flush=True)
+    Spanner.assertTrue(1)
     
     ###### TEMPERATURE RELATED ######
     print("get the temperature...", flush=True)
