@@ -20,8 +20,8 @@ testboard = Testboard("testboard_name")
 ROUTER = "D3"
 HEATER = "D2"
 FAN = "D4"
-THERMO2 = "D5"
-THERMO_ON = "D6"
+THERMO2 = "D6"
+THERMO_ON = "D5"
 TEMPERATURE = "A4"
 
 #get the current temperature.
