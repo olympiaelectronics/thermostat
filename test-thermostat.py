@@ -14,6 +14,6 @@ def perform_test():
     urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=login_correct").read()
     time.sleep(15)	
     Spanner.assertTrue(1)
-   
+#start test   
 if __name__ == "__main__":
     perform_test()
