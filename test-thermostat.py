@@ -6,9 +6,12 @@ import urllib.request
 ROUTER = "D3"
 THERMO2 = "D6"
 THERMO_ON = "D5"
-RELAY = "A3"
+RELAY = "D7"
 
 testboard = Testboard("testboard_name")
+
+def is_relay_on():
+    value = testboard.digitalRead(RELAY)
 
 def set_temp_low():
     time.sleep(10)
