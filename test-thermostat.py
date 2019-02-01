@@ -28,7 +28,7 @@ def set_temp_low():
     value = testboard.digitalRead(RELAY)
     print("Is relay ON? value=","%d" % value, flush=True)
     cnt=0
-    while value != 1.000:
+    while value != 1:
         value = testboard.digitalRead(RELAY)
         print("Is relay ON? value=","%d" % value, flush=True)
         cnt = cnt + 1
