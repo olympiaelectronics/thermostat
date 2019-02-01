@@ -6,7 +6,7 @@ import urllib.request
 ROUTER = "D3"
 THERMO2 = "D6"
 THERMO_ON = "D5"
-RELAY = "D7"
+RELAY = "D1"
 
 testboard = Testboard("testboard_name")
 
