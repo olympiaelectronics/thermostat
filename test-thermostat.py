@@ -12,6 +12,10 @@ testboard = Testboard("testboard_name")
 
 def is_relay_on():
     value = testboard.digitalRead(RELAY)
+    if value == 0:
+        return 1
+    else:
+        return 0
 
 def set_temp_low():
     time.sleep(10)
@@ -25,11 +29,11 @@ def set_temp_low():
     print("Wait 20 seconds...", flush=True)
     time.sleep(30)
 	
-    value = testboard.digitalRead(RELAY)
+    value = is_relay_on()
     print("Is relay ON? value=","%d" % value, flush=True)
     cnt=0
-    while value != 1:
-        value = testboard.digitalRead(RELAY)
+    while value != 0:
+        value = is_relay_on()
         print("Is relay ON? value=","%d" % value, flush=True)
         cnt = cnt + 1
         if cnt == 10:
@@ -48,11 +52,11 @@ def set_temp_high():
     print("Wait 30 seconds...", flush=True)
     time.sleep(30)
     
-    value = testboard.digitalRead(RELAY)
+    value = is_relay_on()
     print("Is relay ON? value=","%d" % value, flush=True)
     cnt=0
-    while value != 0:
-        value = testboard.digitalRead(RELAY)
+    while value != 1:
+        value = is_relay_on()
         print("Is relay ON? value=","%d" % value, flush=True)
         cnt = cnt + 1
         if cnt == 10:
