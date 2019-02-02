@@ -43,6 +43,7 @@ def perform_test():
     testboard.stopPowerMeasurement()
     power = testboard.measuredPowerConsumption()
     print("power consumption (mA) = ","%.3f" % power, flush=True)
+    testboard.digitalWrite(THERMO2, 'LOW')
     Spanner.assertTrue(1)
 # run test...   
 if __name__ == "__main__":
