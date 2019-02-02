@@ -44,6 +44,6 @@ def perform_test():
     power = testboard.measuredPowerConsumption()
     print("power consumption (mA) = ","%.3f" % power, flush=True)
     Spanner.assertTrue(1)
-# run test...   
+# run test
 if __name__ == "__main__":
     perform_test()
