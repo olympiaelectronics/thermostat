@@ -36,7 +36,7 @@ def perform_test():
     # Stop measuring power consumption
     testboard.stopPowerMeasurement()
     power = testboard.measuredPowerConsumption()
-    print("power consumption (mA) = ","%.3f" % power, flush=True)
+    print("power consumption (mA) = ","%.3f" % (power/10), flush=True)
     Spanner.assertTrue(1)
     
     testboard.startPowerMeasurement()
@@ -49,6 +49,7 @@ def perform_test():
     power = testboard.measuredPowerConsumption()
     print("power consumption (mA) = ","%.3f" % power, flush=True)
     testboard.digitalWrite(THERMO2, 'LOW')
+    testboard.digitalWrite(ROUTER, 'LOW')    
     Spanner.assertTrue(1)
 # run test...   
 if __name__ == "__main__":
