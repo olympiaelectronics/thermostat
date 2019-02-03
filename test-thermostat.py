@@ -20,10 +20,7 @@ THERMO2 = "D6"
 ROUTER = "D3"
 
 def perform_test():
-    print("Starting Access Point...", flush=True)
-    testboard.digitalWrite(ROUTER, 'HIGH')
-    time.sleep(30)
-    
+    time.sleep(3)    
     print("Starting Thermostat...", flush=True)
     testboard.digitalWrite(THERMO2, 'HIGH')
     
@@ -49,7 +46,6 @@ def perform_test():
     power = testboard.measuredPowerConsumption()
     print("power consumption (mA) = ","%.3f" % power, flush=True)
     testboard.digitalWrite(THERMO2, 'LOW')
-    testboard.digitalWrite(ROUTER, 'LOW')    
     Spanner.assertTrue(1)
 # run test...   
 if __name__ == "__main__":
