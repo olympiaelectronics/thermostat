@@ -17,8 +17,13 @@ testboard = Testboard("testboard_name")
 
 THERMO_ON = "D5"
 THERMO2 = "D6"
+ROUTER = "D3"
 
 def perform_test():
+    print("Starting Access Point...", flush=True)
+    testboard.digitalWrite(ROUTER, 'HIGH')
+    time.sleep(30)
+    
     print("Starting Thermostat...", flush=True)
     testboard.digitalWrite(THERMO2, 'HIGH')
     
