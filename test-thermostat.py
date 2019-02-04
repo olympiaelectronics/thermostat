@@ -26,8 +26,8 @@ def set_temp_low():
 
     print("Set Temperature Low...", flush=True)
     urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setTempLowest").read()
-    print("Wait 20 seconds...", flush=True)
-    time.sleep(30)
+    print("Wait 15 seconds...", flush=True)
+    time.sleep(15)
 	
     value = is_relay_on()
     print("Is relay OFF?", flush=True)
@@ -53,8 +53,8 @@ def set_temp_high():
     print("Set Temperature High...", flush=True)
     urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setTempHighest").read()
     
-    print("Wait 30 seconds...", flush=True)
-    time.sleep(30)
+    print("Wait 15 seconds...", flush=True)
+    time.sleep(15)
     
     value = is_relay_on()
     print("Is relay ON?", flush=True)
