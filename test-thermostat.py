@@ -41,12 +41,11 @@ if __name__ == "__main__":
 	
     cool_heatup()
     testboard.digitalWrite(HEATER, 'LOW')
+    testboard.digitalWrite(FAN, 'LOW')	
     time.sleep(100)
 	
     testboard.digitalWrite(THERMO_ON, 'LOW')
     testboard.digitalWrite(ROUTER, 'LOW')
     testboard.digitalWrite(THERMO2, 'LOW')	
-    testboard.digitalWrite(FAN, 'LOW')
-     
- 
+    
     Spanner.assertTrue(1)
