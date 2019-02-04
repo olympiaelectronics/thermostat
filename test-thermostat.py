@@ -37,7 +37,7 @@ if __name__ == "__main__":
     testboard.digitalWrite(THERMO_ON, 'LOW')
 	
     time.sleep(1) 
-    urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setTempLowest").read()
+    urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setTempLow").read()
     print("Wait 20 seconds...", flush=True)
     time.sleep(20)
 
