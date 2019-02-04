@@ -9,13 +9,13 @@ ROUTER = "D3"
 THERMO2 = "D6"
 THERMO_ON = "D5"
 TEMPERATURE = "A4"
-RELAY = "D7"
+RELAY = "A3"
 
 testboard = Testboard("testboard_name")
 
 def cool_heatup():
     cnt=0
-    while cnt < 3:
+    while cnt < 5:
         testboard.digitalWrite(FAN, 'HIGH')
         testboard.digitalWrite(HEATER, 'HIGH')
         time.sleep(15)
