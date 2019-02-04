@@ -18,24 +18,9 @@ def get_temperature():
     value = testboard.analogRead(TEMPERATURE)
     voltage = (3.3 * value) / 4096
     temp =  (voltage - 0.5) * 100
+    print("voltage = ","%d" % voltage)
+    return temp
 
-    value = testboard.analogRead(TEMPERATURE)
-    voltage = (3.3 * value) / 4096
-    temp =  temp+(voltage - 0.5) * 100
-	
-    value = testboard.analogRead(TEMPERATURE)
-    voltage = (3.3 * value) / 4096
-    temp =  temp+(voltage - 0.5) * 100
-
-    value = testboard.analogRead(TEMPERATURE)
-    voltage = (3.3 * value) / 4096
-    temp =  temp+(voltage - 0.5) * 100
-	
-    value = testboard.analogRead(TEMPERATURE)
-    voltage = (3.3 * value) / 4096
-    temp =  temp+(voltage - 0.5) * 100
-
-    return temp/5
  	
 def is_relay_on():
     value = testboard.digitalRead(RELAY)
