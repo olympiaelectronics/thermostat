@@ -22,7 +22,11 @@ def cool_heatup():
         testboard.digitalWrite(FAN, 'LOW') 
         testboard.digitalWrite(HEATER, 'LOW')
         time.sleep(5)
-        cnt=cnt+1	
+        cnt=cnt+1
+        value = testboard.digitalRead(RELAY)
+        print("value=","%.3f" % value, flush=True) 	
+        if value==1:
+            break
     
 if __name__ == "__main__":
     print("Starting Access Point...", flush=True)
