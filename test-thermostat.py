@@ -13,13 +13,6 @@ RELAY = "D7"
 
 testboard = Testboard("testboard_name")
 
-def cool_down():
-    time.sleep(10)
-   
-    testboard.digitalWrite(FAN, 'HIGH')
-    time.sleep(240)
-    Spanner.assertTrue(1)
-
 def cool_heatup():
     cnt=0
     while cnt < 3:
@@ -30,7 +23,6 @@ def cool_heatup():
         testboard.digitalWrite(HEATER, 'LOW')
         time.sleep(5)
         cnt=cnt+1	
-    Spanner.assertTrue(1)
     
 if __name__ == "__main__":
     print("Starting Access Point...", flush=True)
@@ -45,8 +37,8 @@ if __name__ == "__main__":
     testboard.digitalWrite(THERMO_ON, 'LOW')
  
     urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setTempLowest").read()
-    print("Wait 15 seconds...", flush=True)
-    time.sleep(15)
+    print("Wait 20 seconds...", flush=True)
+    time.sleep(20)
 
     print("Set Temperature High...", flush=True)
     urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setTempHigh").read()
