@@ -13,7 +13,7 @@ testboard = Testboard("testboard_name")
 def perform_test():
     print("Starting Access Point and wait for a minute...", flush=True)
     testboard.digitalWrite(ROUTER, 'HIGH')
-    time.sleep(60)
+    time.sleep(40)
     print("Starting Thermostat...", flush=True)
     testboard.digitalWrite(THERMO2, 'HIGH')
 
@@ -55,7 +55,7 @@ def perform_test():
     
     print("Power on Access Point and wait for a minute", flush=True)
     testboard.digitalWrite(ROUTER, 'HIGH')	
-    time.sleep(60)
+    time.sleep(40)
     
     value = testboard.digitalRead(RELAY)
     cnt=0
@@ -65,7 +65,7 @@ def perform_test():
         if value == 1:
             print("Not yet", flush=True)        		
         cnt = cnt + 1
-        if cnt == 30:
+        if cnt == 20:
             Spanner.assertTrue(0)
             break
         time.sleep(2)
