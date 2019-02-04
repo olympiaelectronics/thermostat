@@ -40,7 +40,8 @@ if __name__ == "__main__":
     testboard.digitalWrite(THERMO_ON, 'LOW')
 	
     cool_heatup()
-    
+    time.sleep(60)
+	
     testboard.digitalWrite(THERMO_ON, 'LOW')
     testboard.digitalWrite(ROUTER, 'LOW')
     testboard.digitalWrite(THERMO2, 'LOW')	
