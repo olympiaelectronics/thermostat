@@ -14,7 +14,7 @@ def set_temp_low():
     print("Set Temperature Low...", flush=True)
     urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setTempLowest").read()
     time.sleep(5)
-    print("Wait 20 seconds...", flush=True)
+    print("Wait for 20 seconds...", flush=True)
     time.sleep(20)
 	
     value = testboard.digitalRead(RELAY)
@@ -39,7 +39,7 @@ def set_temp_high():
     print("Set Temperature High...", flush=True)
     urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setTempHighest").read()
     time.sleep(5)    
-    print("Wait 20 seconds...", flush=True)
+    print("Wait for 20 seconds...", flush=True)
     time.sleep(15)
     
     print("Power on Access Point and wait for a minute", flush=True)
