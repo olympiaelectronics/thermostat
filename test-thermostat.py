@@ -73,7 +73,6 @@ def perform_test():
     testboard.digitalWrite(THERMO_ON, 'LOW')
     testboard.digitalWrite(ROUTER, 'LOW')
     testboard.digitalWrite(THERMO2, 'LOW')	
-    Spanner.assertTrue(1)
     	
 if __name__ == "__main__":
     perform_test()
