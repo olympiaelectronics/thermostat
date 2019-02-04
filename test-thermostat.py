@@ -18,7 +18,7 @@ def cool_heatup():
     while cnt < 3:
         testboard.digitalWrite(FAN, 'HIGH')
         testboard.digitalWrite(HEATER, 'HIGH')
-        time.sleep(10)
+        time.sleep(15)
         testboard.digitalWrite(FAN, 'LOW') 
         testboard.digitalWrite(HEATER, 'LOW')
         time.sleep(5)
@@ -37,14 +37,15 @@ if __name__ == "__main__":
     testboard.digitalWrite(THERMO_ON, 'LOW')
 	
     time.sleep(1) 
+    print("Set Temperature Low...", flush=True)
     urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setTempLow").read()
     print("Wait 20 seconds...", flush=True)
     time.sleep(20)
 
     print("Set Temperature High...", flush=True)
     urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setTempHigh").read()
-    print("Wait 15 seconds...", flush=True)
-    time.sleep(15)
+    print("Wait 20 seconds...", flush=True)
+    time.sleep(20)
 	
     cool_heatup()
     testboard.digitalWrite(HEATER, 'LOW')
