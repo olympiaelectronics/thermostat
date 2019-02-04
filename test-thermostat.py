@@ -52,7 +52,7 @@ if __name__ == "__main__":
     value = testboard.digitalRead(RELAY)
     cnt=0
     while value != 1:
-         print("Waiting...", flush=True)		
+        print("Waiting...", flush=True)
         time.sleep(20)
 	value = testboard.digitalRead(RELAY)		
 	cnt=cnt+1
