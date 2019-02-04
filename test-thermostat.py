@@ -20,11 +20,15 @@ def cool_down():
     Spanner.assertTrue(1)
 
 def cool_heatup():
-    time.sleep(10)
-   
-    testboard.digitalWrite(FAN, 'HIGH')
-    testboard.digitalWrite(HEATER, 'HIGH')
-    time.sleep(10)
+    cnt=0
+    while cnt < 5:
+        testboard.digitalWrite(FAN, 'HIGH')
+        testboard.digitalWrite(HEATER, 'HIGH')
+        time.sleep(10)
+        testboard.digitalWrite(FAN, 'HIGH') 
+        testboard.digitalWrite(HEATER, 'HIGH')
+        time.sleep(10)
+        cnt++	
     Spanner.assertTrue(1)
     
 if __name__ == "__main__":
