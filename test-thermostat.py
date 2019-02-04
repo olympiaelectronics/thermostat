@@ -3,6 +3,7 @@ import Spanner
 from Testboard import Testboard
 import urllib.request
 
+HEATER = "D2"
 FAN = "D4"
 ROUTER = "D3"
 THERMO2 = "D6"
@@ -17,6 +18,14 @@ def cool_down():
     testboard.digitalWrite(FAN, 'HIGH')
     time.sleep(240)
     Spanner.assertTrue(1)
+
+def cool_heatup():
+    time.sleep(10)
+   
+    testboard.digitalWrite(FAN, 'HIGH')
+    testboard.digitalWrite(HEATER, 'HIGH')
+    time.sleep(10)
+    Spanner.assertTrue(1)
     
 if __name__ == "__main__":
     print("Starting Access Point...", flush=True)
@@ -30,7 +39,7 @@ if __name__ == "__main__":
     time.sleep(1)
     testboard.digitalWrite(THERMO_ON, 'LOW')
 	
-    cool_down()
+    cool_heatup()
     
     testboard.digitalWrite(THERMO_ON, 'LOW')
     testboard.digitalWrite(ROUTER, 'LOW')
