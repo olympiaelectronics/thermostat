@@ -38,11 +38,14 @@ def perform_test():
             print("Not yet", flush=True)    
         cnt = cnt + 1
         if cnt == 10:
-            print("Ok Thermoastat is OFF", flush=True)
+            print("Relay is still ON - Give up", flush=True)
             break
         time.sleep(2)
     if cnt == 10:
         Spanner.assertTrue(0)
+    else:
+        print("Relay is OFF", flush=True)	
+        Spanner.assertTrue(1)
 			
     print("Power off Access Point...", flush=True)
     testboard.digitalWrite(ROUTER, 'LOW')	
@@ -66,10 +69,15 @@ def perform_test():
             print("Not yet", flush=True)        		
         cnt = cnt + 1
         if cnt == 20:
-            Spanner.assertTrue(0)
+            print("Relay is still OFF - Give up", flush=True)		
             break
         time.sleep(2)
-		
+    if cnt == 20:
+        Spanner.assertTrue(0)
+    else:
+        print("Relay is ON", flush=True)	
+        Spanner.assertTrue(1)
+	
     testboard.digitalWrite(THERMO_ON, 'LOW')
     testboard.digitalWrite(ROUTER, 'LOW')
     testboard.digitalWrite(THERMO2, 'LOW')	
