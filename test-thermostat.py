@@ -54,8 +54,8 @@ if __name__ == "__main__":
     while value != 1:
         print("Waiting...", flush=True)
         time.sleep(20)
-	value = testboard.digitalRead(RELAY)		
-	cnt=cnt+1
+        value = testboard.digitalRead(RELAY)		
+        cnt=cnt+1
         if cnt == 10:
             break
 
