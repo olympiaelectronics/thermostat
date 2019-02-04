@@ -11,9 +11,9 @@ RELAY = "A3"
 testboard = Testboard("testboard_name")
 
 def perform_test():
-    print("Starting Access Point...", flush=True)
+    print("Starting Access Point and wait for a minute...", flush=True)
     testboard.digitalWrite(ROUTER, 'HIGH')
-    time.sleep(40)
+    time.sleep(60)
     print("Starting Thermostat...", flush=True)
     testboard.digitalWrite(THERMO2, 'HIGH')
 
@@ -50,9 +50,9 @@ def perform_test():
     print("Wait 20 seconds...", flush=True)
     time.sleep(15)
     
-    print("Power on Access Point...", flush=True)
+    print("Power on Access Point and wait for a minute", flush=True)
     testboard.digitalWrite(ROUTER, 'HIGH')	
-    time.sleep(40)
+    time.sleep(60)
     
     value = testboard.digitalRead(RELAY)
     cnt=0
