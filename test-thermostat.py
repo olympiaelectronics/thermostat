@@ -35,7 +35,8 @@ if __name__ == "__main__":
     testboard.digitalWrite(THERMO_ON, 'HIGH')
     time.sleep(1)
     testboard.digitalWrite(THERMO_ON, 'LOW')
- 
+	
+    time.sleep(1) 
     urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setTempLowest").read()
     print("Wait 20 seconds...", flush=True)
     time.sleep(20)
@@ -50,11 +51,13 @@ if __name__ == "__main__":
     testboard.digitalWrite(FAN, 'LOW')	
     
     value = testboard.digitalRead(RELAY)
+    print("Is relay ON? value=","%.3f" % value, flush=True)    
     cnt=0
     while value != 1:
         print("Waiting...", flush=True)
         time.sleep(20)
-        value = testboard.digitalRead(RELAY)		
+        value = testboard.digitalRead(RELAY)
+        print("Is relay ON? value=","%.3f" % value, flush=True)    	
         cnt=cnt+1
         if cnt == 10:
             break
