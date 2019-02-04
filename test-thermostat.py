@@ -11,18 +11,6 @@ RELAY = "A3"
 testboard = Testboard("testboard_name")
 
 def set_temp_low():
-    print("Starting Access Point and wait for a minute...", flush=True)
-    testboard.digitalWrite(ROUTER, 'HIGH')
-    time.sleep(40)
-    print("Starting Thermostat...", flush=True)
-    testboard.digitalWrite(THERMO2, 'HIGH')
-
-    time.sleep(10)
-    print("Switch Thermostat ON", flush=True)
-    testboard.digitalWrite(THERMO_ON, 'HIGH')
-    time.sleep(1)
-    testboard.digitalWrite(THERMO_ON, 'LOW')
-
     print("Set Temperature Low...", flush=True)
     urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setTempLowest").read()
     time.sleep(5)
@@ -75,13 +63,26 @@ def set_temp_high():
     else:
         print("Relay is ON", flush=True)	
         Spanner.assertTrue(1)
-	
-    testboard.digitalWrite(THERMO_ON, 'LOW')
-    testboard.digitalWrite(ROUTER, 'LOW')
-    testboard.digitalWrite(THERMO2, 'LOW')	
     	
 if __name__ == "__main__":
+    urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=login_correct").read()	
+    print("Starting Access Point and wait for a minute...", flush=True)
+    testboard.digitalWrite(ROUTER, 'HIGH')
+    time.sleep(40)
+    print("Starting Thermostat...", flush=True)
+    testboard.digitalWrite(THERMO2, 'HIGH')
+
+    time.sleep(10)
+    print("Switch Thermostat ON", flush=True)
+    testboard.digitalWrite(THERMO_ON, 'HIGH')
+    time.sleep(1)
+    testboard.digitalWrite(THERMO_ON, 'LOW')
+
     set_temp_low()
     print("Power off Access Point...", flush=True)
     testboard.digitalWrite(ROUTER, 'LOW')	
     set_temp_high()
+
+    testboard.digitalWrite(THERMO_ON, 'LOW')
+    testboard.digitalWrite(ROUTER, 'LOW')
+    testboard.digitalWrite(THERMO2, 'LOW')	
