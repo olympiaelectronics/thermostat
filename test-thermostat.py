@@ -33,7 +33,9 @@ def perform_test():
     cnt=0
     while value != 1.000:
         value = testboard.digitalRead(RELAY)
-        print("Is relay ON? value=","%.3f" % value, flush=True)
+        print("Is relay OFF?", flush=True)
+        if value == 0:
+            print("Not yet", flush=True)    
         cnt = cnt + 1
         if cnt == 10:
             print("Ok Thermoastat is OFF", flush=True)
@@ -59,7 +61,9 @@ def perform_test():
     cnt=0
     while value != 0:
         value = testboard.digitalRead(RELAY)
-        print("Is relay ON? value=","%.3f" % value, flush=True)
+        print("Is relay ON?", flush=True)
+        if value == 1:
+            print("Not yet", flush=True)        		
         cnt = cnt + 1
         if cnt == 30:
             Spanner.assertTrue(0)
