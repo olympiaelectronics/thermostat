@@ -25,6 +25,7 @@ def perform_test():
 
     print("Set Temperature Low...", flush=True)
     urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setTempLowest").read()
+    time.sleep(5)
     print("Wait 20 seconds...", flush=True)
     time.sleep(20)
 	
@@ -46,7 +47,7 @@ def perform_test():
 	
     print("Set Temperature High...", flush=True)
     urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setTempHighest").read()
-    
+    time.sleep(5)    
     print("Wait 20 seconds...", flush=True)
     time.sleep(15)
     
