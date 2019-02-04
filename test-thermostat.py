@@ -18,12 +18,6 @@ def is_relay_on():
         return 0
 
 def set_temp_low():
-    time.sleep(10)
-    print("Switch Thermostat ON", flush=True)
-    testboard.digitalWrite(THERMO_ON, 'HIGH')
-    time.sleep(1)
-    testboard.digitalWrite(THERMO_ON, 'LOW')
-
     print("Set Temperature Low...", flush=True)
     urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setTempLowest").read()
     print("Wait 15 seconds...", flush=True)
@@ -83,6 +77,11 @@ if __name__ == "__main__":
     time.sleep(40)
     print("Starting Thermostat...", flush=True)
     testboard.digitalWrite(THERMO2, 'HIGH')
+    time.sleep(10)
+    print("Switch Thermostat ON", flush=True)
+    testboard.digitalWrite(THERMO_ON, 'HIGH')
+    time.sleep(1)
+    testboard.digitalWrite(THERMO_ON, 'LOW')
 	
     set_temp_low()
     set_temp_high()
