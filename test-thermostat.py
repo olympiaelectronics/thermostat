@@ -39,13 +39,13 @@ if __name__ == "__main__":
     time.sleep(1) 
     print("Set Temperature Low...", flush=True)
     urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setTempLow").read()
-    print("Wait 20 seconds...", flush=True)
-    time.sleep(20)
+    print("Wait 30 seconds...", flush=True)
+    time.sleep(30)
 
     print("Set Temperature High...", flush=True)
     urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setTempHigh").read()
-    print("Wait 20 seconds...", flush=True)
-    time.sleep(20)
+    print("Wait 30 seconds...", flush=True)
+    time.sleep(30)
 	
     cool_heatup()
     testboard.digitalWrite(HEATER, 'LOW')
