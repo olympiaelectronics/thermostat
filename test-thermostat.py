@@ -27,7 +27,7 @@ def cool_heatup():
         time.sleep(10)
         testboard.digitalWrite(FAN, 'LOW') 
         testboard.digitalWrite(HEATER, 'LOW')
-        time.sleep(10)
+        time.sleep(5)
         cnt=cnt+1	
     Spanner.assertTrue(1)
     
@@ -46,7 +46,7 @@ if __name__ == "__main__":
     cool_heatup()
     testboard.digitalWrite(HEATER, 'LOW')
     testboard.digitalWrite(FAN, 'LOW')	
-    time.sleep(100)
+    time.sleep(200)
 	
     testboard.digitalWrite(THERMO_ON, 'LOW')
     testboard.digitalWrite(ROUTER, 'LOW')
