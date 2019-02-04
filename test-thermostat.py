@@ -16,12 +16,14 @@ testboard = Testboard("testboard_name")
 #get the current temperature.
 def get_temperature():
     value = testboard.analogRead(TEMPERATURE)
-    s = 'value = ' + value	
+    s = 'value = ' + str(value)	
     print(s)
     voltage = (3.3 * value) / 4096
-    s = 'voltage = ' + voltage	
+    s = 'voltage = ' + str(voltage)	
     print(s)
     temp =  (voltage - 0.5) * 100
+    s = 'temperature = ' + str(temp)
+    print(s)	
     return temp
 
  	
