@@ -25,6 +25,8 @@ def cool_heatup():
         cnt=cnt+1
         value = testboard.digitalRead(RELAY)
         print("value=","%.3f" % value, flush=True) 	
+        if value==0:
+        print("relay is still on", flush=True) 
         if value==1:
             break
     
