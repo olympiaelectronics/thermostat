@@ -25,22 +25,22 @@ def set_temp_low():
 	
     value = is_relay_on()
     print("Is relay OFF?", flush=True)
-    if value == 0:
+    if value != 0:
         print("Not yet", flush=True)   
     cnt=0
     while value != 0:
         value = is_relay_on()
         print("Is relay OFF?", flush=True)
-        if value == 0:
+        if value != 0:
             print("Not yet", flush=True)    
         cnt = cnt + 1
         if cnt == 10:
-            print("Ok Thermoastat is OFF", flush=True)
             break
         time.sleep(2)
     if cnt == 10:
         Spanner.assertTrue(0)
     else:
+        print("OK", flush=True) 	
         Spanner.assertTrue(1)
 
 def set_temp_high():
@@ -52,14 +52,14 @@ def set_temp_high():
     
     value = is_relay_on()
     print("Is relay ON?", flush=True)
-    if value == 1:
+    if value != 1:
         print("Not yet", flush=True)   
 	
     cnt=0
     while value != 1:
         value = is_relay_on()
         print("Is relay ON?", flush=True)
-        if value == 1:
+        if value != 1:
             print("Not yet", flush=True)      
         cnt = cnt + 1
         if cnt == 10:
@@ -69,6 +69,7 @@ def set_temp_high():
     if cnt == 10:
         Spanner.assertTrue(0)
     else:
+        print("OK", flush=True) 
         Spanner.assertTrue(1)
     	
 if __name__ == "__main__":
