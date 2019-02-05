@@ -40,7 +40,7 @@ if __name__ == "__main__":
     value = testboard.digitalRead(RELAY)
     print("Is relay ON? value=","%.3f" % value, flush=True)    
     cnt=0
-    while value != 0:
+    while value != 1:
         print("Waiting...", flush=True)
         time.sleep(20)
         value = testboard.digitalRead(RELAY)
@@ -55,11 +55,27 @@ if __name__ == "__main__":
         Spanner.assertTrue(1)
 	
 ###############################
-    print("Setting Temperature Low...", flush=True)
+    print("Switch thermostat on...", flush=True)
     urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_switchOnOff").read()
     print("Wait 30 seconds...", flush=True)
     time.sleep(30)
-	
+
+    value = testboard.digitalRead(RELAY)
+    print("Is relay ON? value=","%.3f" % value, flush=True)    
+    cnt=0
+    while value != 0:
+        print("Waiting...", flush=True)
+        time.sleep(20)
+        value = testboard.digitalRead(RELAY)
+ #       print("Is relay ON? value=","%.3f" % value, flush=True)    	
+        cnt=cnt+1
+        if cnt == 10:
+            break
+
+    if cnt == 10:
+        Spanner.assertTrue(0)
+    else:
+        Spanner.assertTrue(1)
 	
     testboard.digitalWrite(THERMO_ON, 'LOW')
     testboard.digitalWrite(ROUTER, 'LOW')
