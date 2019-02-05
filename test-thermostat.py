@@ -13,22 +13,7 @@ RELAY = "A3"
 
 testboard = Testboard("testboard_name")
 
-def heatup():
-    print("Heating things up...", flush=True)	
-    cnt=0
-    while cnt < 5:
-        testboard.digitalWrite(FAN, 'HIGH')
-        testboard.digitalWrite(HEATER, 'HIGH')
-        time.sleep(15)
-        testboard.digitalWrite(FAN, 'LOW') 
-        testboard.digitalWrite(HEATER, 'LOW')
-        time.sleep(5)
-        cnt=cnt+1
-        value = testboard.digitalRead(RELAY)
-        #print("value=","%.3f" % value, flush=True) 	
-        if value==1:
-            break
-#heat up test    
+#boiler on/off test    
 if __name__ == "__main__":
     print("Starting Access Point...", flush=True)
     testboard.digitalWrite(ROUTER, 'HIGH')
@@ -47,19 +32,15 @@ if __name__ == "__main__":
     print("Wait 30 seconds...", flush=True)
     time.sleep(30)
 
-    print("Setting Temperature High...", flush=True)
-    urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setTempHigh").read()
+    print("Setting Temperature Low...", flush=True)
+    urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setBoilerOnOff").read()
     print("Wait 30 seconds...", flush=True)
     time.sleep(30)
-	
-    heatup()
-    testboard.digitalWrite(HEATER, 'LOW')
-    testboard.digitalWrite(FAN, 'LOW')	
-    
+
     value = testboard.digitalRead(RELAY)
     print("Is relay ON? value=","%.3f" % value, flush=True)    
     cnt=0
-    while value != 1:
+    while value != 0:
         print("Waiting...", flush=True)
         time.sleep(20)
         value = testboard.digitalRead(RELAY)
@@ -72,6 +53,13 @@ if __name__ == "__main__":
         Spanner.assertTrue(0)
     else:
         Spanner.assertTrue(1)
+	
+###############################
+    print("Setting Temperature Low...", flush=True)
+    urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setBoilerOnOff").read()
+    print("Wait 30 seconds...", flush=True)
+    time.sleep(30)
+	
 	
     testboard.digitalWrite(THERMO_ON, 'LOW')
     testboard.digitalWrite(ROUTER, 'LOW')
