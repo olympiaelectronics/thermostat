@@ -27,12 +27,12 @@ if __name__ == "__main__":
     testboard.digitalWrite(THERMO_ON, 'LOW')
 	
     time.sleep(1) 
-    print("Setting Temperature Low...", flush=True)
+    print("Setting Temperature High...", flush=True)
     urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setTempHigh").read()
     print("Wait 30 seconds...", flush=True)
     time.sleep(30)
 
-    print("Setting Temperature Low...", flush=True)
+    print("Switch thermostat off...", flush=True)
     urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_switchOnOff").read()
     print("Wait 30 seconds...", flush=True)
     time.sleep(30)
