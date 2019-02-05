@@ -13,7 +13,8 @@ RELAY = "A3"
 
 testboard = Testboard("testboard_name")
 
-def cool_heatup():
+def heatup():
+    print("Heating things up...", flush=True)	
     cnt=0
     while cnt < 5:
         testboard.digitalWrite(FAN, 'HIGH')
@@ -41,17 +42,17 @@ if __name__ == "__main__":
     testboard.digitalWrite(THERMO_ON, 'LOW')
 	
     time.sleep(1) 
-    print("Set Temperature Low...", flush=True)
+    print("Setting Temperature Low...", flush=True)
     urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setTempLow").read()
     print("Wait 30 seconds...", flush=True)
     time.sleep(30)
 
-    print("Set Temperature High...", flush=True)
+    print("Setting Temperature High...", flush=True)
     urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setTempHigh").read()
     print("Wait 30 seconds...", flush=True)
     time.sleep(30)
 	
-    cool_heatup()
+    heatup()
     testboard.digitalWrite(HEATER, 'LOW')
     testboard.digitalWrite(FAN, 'LOW')	
     
