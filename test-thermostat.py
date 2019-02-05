@@ -28,12 +28,12 @@ if __name__ == "__main__":
 	
     time.sleep(1) 
     print("Setting Temperature Low...", flush=True)
-    urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setTempLow").read()
+    urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setTempHigh").read()
     print("Wait 30 seconds...", flush=True)
     time.sleep(30)
 
     print("Setting Temperature Low...", flush=True)
-    urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setBoilerOnOff").read()
+    urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_switchOnOff").read()
     print("Wait 30 seconds...", flush=True)
     time.sleep(30)
 
