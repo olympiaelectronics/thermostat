@@ -27,7 +27,7 @@ def cool_heatup():
         print("value=","%.3f" % value, flush=True) 	
         if value==1:
             break
-    
+#heat up test    
 if __name__ == "__main__":
     print("Starting Access Point...", flush=True)
     testboard.digitalWrite(ROUTER, 'HIGH')
