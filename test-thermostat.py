@@ -56,7 +56,7 @@ if __name__ == "__main__":
 	
 ###############################
     print("Setting Temperature Low...", flush=True)
-    urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_setBoilerOnOff").read()
+    urllib.request.urlopen("https://wismart.io/sendgcmrequest.php?message=change_switchOnOff").read()
     print("Wait 30 seconds...", flush=True)
     time.sleep(30)
 	
