@@ -46,10 +46,10 @@ if __name__ == "__main__":
         value = testboard.digitalRead(RELAY)
  #       print("Is relay ON? value=","%.3f" % value, flush=True)    	
         cnt=cnt+1
-        if cnt == 10:
+        if cnt == 5:
             break
 
-    if cnt == 10:
+    if cnt == 5:
         Spanner.assertTrue(0)
     else:
         Spanner.assertTrue(1)
@@ -69,10 +69,10 @@ if __name__ == "__main__":
         value = testboard.digitalRead(RELAY)
  #       print("Is relay ON? value=","%.3f" % value, flush=True)    	
         cnt=cnt+1
-        if cnt == 10:
+        if cnt == 5:
             break
 
-    if cnt == 10:
+    if cnt == 5:
         Spanner.assertTrue(0)
     else:
         Spanner.assertTrue(1)
