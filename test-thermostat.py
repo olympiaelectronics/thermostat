@@ -34,7 +34,8 @@ def perform_test():
     testboard.stopPowerMeasurement()
     power = testboard.measuredPowerConsumption()
     print("power consumption (mA) = ","%.3f" % (power/10), flush=True)
-    Spanner.assertTrue(1)
+   #Spanner.assertTrue(1)
+    Spanner.assertLessThan(0.5, testboard.measuredPowerConsumption()/10)
     
     testboard.startPowerMeasurement()
     for x in range(8):
@@ -46,7 +47,7 @@ def perform_test():
     power = testboard.measuredPowerConsumption()
     print("power consumption (mA) = ","%.3f" % power, flush=True)
     testboard.digitalWrite(THERMO2, 'LOW')
-    Spanner.assertTrue(1)
+    Spanner.assertLessThan(10, testboard.measuredPowerConsumption())
 # run test...   
 if __name__ == "__main__":
     perform_test()
