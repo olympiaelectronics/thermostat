@@ -25,7 +25,7 @@ def heatup():
         time.sleep(5)
         cnt=cnt+1
         value = testboard.digitalRead(RELAY)
-        print("value=","%.3f" % value, flush=True) 	
+        #print("value=","%.3f" % value, flush=True) 	
         if value==1:
             break
 #heat up test    
