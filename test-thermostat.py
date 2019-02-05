@@ -35,7 +35,7 @@ def perform_test():
     power = testboard.measuredPowerConsumption()
     print("power consumption (mA) = ","%.3f" % (power/10), flush=True)
    #Spanner.assertTrue(1)
-    Spanner.assertLessThan(0.5, testboard.measuredPowerConsumption()/10)
+    Spanner.assertLessThan(0.6, testboard.measuredPowerConsumption()/10)
     
     testboard.startPowerMeasurement()
     for x in range(8):
