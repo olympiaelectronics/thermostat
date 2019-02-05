@@ -63,7 +63,7 @@ if __name__ == "__main__":
         print("Waiting...", flush=True)
         time.sleep(20)
         value = testboard.digitalRead(RELAY)
-        print("Is relay ON? value=","%.3f" % value, flush=True)    	
+ #       print("Is relay ON? value=","%.3f" % value, flush=True)    	
         cnt=cnt+1
         if cnt == 10:
             break
