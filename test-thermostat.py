@@ -16,7 +16,7 @@ testboard = Testboard("testboard_name")
 def heatup():
     print("Heating things up...", flush=True)	
     cnt=0
-    while cnt < 5:
+    while cnt < 7:
         testboard.digitalWrite(FAN, 'HIGH')
         testboard.digitalWrite(HEATER, 'HIGH')
         time.sleep(15)
